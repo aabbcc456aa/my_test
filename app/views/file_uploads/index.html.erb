@@ -1,0 +1,25 @@
+<%= @user %>222
+<h1>Listing file_uploads</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Url</th>
+    <th>File type</th>
+  </tr>
+
+<% @file_uploads.each do |file_upload| %>
+  <tr>
+    <td><%=h file_upload.name %></td>
+    <td><%=h file_upload.url %></td>
+    <td><%=h file_upload.file_type %></td>
+    <td><%= link_to 'Show', file_upload %></td>
+    <td><%= link_to 'Edit', edit_file_upload_path(file_upload) %></td>
+    <td><%= link_to 'Destroy', file_upload, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New file_upload', new_file_upload_path %>

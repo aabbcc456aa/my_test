@@ -1,0 +1,20 @@
+<h1>Editing sheduler</h1>
+
+<% form_for(@sheduler) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :remark %><br />
+    <%= f.text_field :remark %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @sheduler %> |
+<%= link_to 'Back', shedulers_path %>

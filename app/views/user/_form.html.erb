@@ -1,0 +1,31 @@
+
+  <div class="group">
+    <%= f.label :name, t("activerecord.attributes.user.name", :default => "Name"), :class => :label %>
+    <%= f.text_field :name, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :age, t("activerecord.attributes.user.age", :default => "Age"), :class => :label %>
+    <%= f.text_field :age, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :sex, t("activerecord.attributes.user.sex", :default => "Sex"), :class => :label %>
+    <%= f.text_field :sex, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :remark, t("activerecord.attributes.user.remark", :default => "Remark"), :class => :label %>
+    <%= f.text_field :remark, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+        
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
+  </button>  
+  <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Cancel")}")} #{t("web-app-theme.cancel", :default => "Cancel")}", users_path, :class => "button" %> 
+</div>

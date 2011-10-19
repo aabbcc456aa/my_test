@@ -1,0 +1,2 @@
+class AasController < ApplicationController
+end

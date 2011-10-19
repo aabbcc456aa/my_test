@@ -1,0 +1,2 @@
+module AasHelper
+end

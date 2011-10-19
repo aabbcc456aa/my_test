@@ -1,0 +1,10 @@
+.DS_Store
+pkg/*
+*.gem
+.bundle
+.yardoc
+nbproject
+doc
+coverage
+turbulence
+Gemfile.lock

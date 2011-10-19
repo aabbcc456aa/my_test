@@ -1,0 +1,16 @@
+<h1>New file_upload</h1>
+
+<%= form_tag({:action => 'create'}, :multipart => true) %>
+
+  <p>
+    url
+    <%= text_field_tag :url %>
+  </p>
+ 
+  <p>
+  upload
+    <%= file_field_tag :upload  %>
+  </p>
+  <p>
+    <%= submit_tag 'Create' %>
+  </p>

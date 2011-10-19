@@ -1,0 +1,125 @@
+
+3.1.11 ========
+
+* Patched rico_corner.js to no longer touch Object.prototype.extend which was causing the new version of
+  Prototype (1.5.0) to choke on making Ajax requests, quite unfortunate.
+* Changed usage of m.template for asset copying to m.file
+
+3.1.10 ========
+
+* Fixed bug with :class_name attribute being ignored
+
+3.1.9 =========
+
+* Fixed bug where generator was looking for images that are no longer used (error.gif, warning.gif, information.gif)
+
+3.1.8 =========
+
+* Fixed sorting bug (include AjaxScaffold::Common was missing from AjaxScaffold::Controller)
+
+3.1.7 =========
+
+* Fixed image files that were corrupt in the previous release (add.gif, indicator.gif, indicator-small.gif)
+
+3.1.6 =========
+
+* Added two attributes to scaffold_column
+  :sanitize => Should the output of the column be sanitized of HTML elements (default: true)
+  :class_name => Class added to all TD and TH elements for this column
+* Fixed bug that was causing short circuiting format_column and not doing standard formatting of dates and times
+* Fixed bug with CSS image paths not working when the containing application was deployed in a subdirectory
+
+3.1.5 =========
+
+* Updated the functional and unit tests to patch some variable issues: <%= class_name %> used
+  instead of <%= singular_name %>. (Nic Williams)
+
+3.1.4 =========
+
+* Removed some vestigal CSS styling of textarea's that was setting the height
+* Added unit and functional tests (Nic Williams)
+* Fixed bug with CamelCased model names not being converted to underscored names correctly
+
+3.1.3 =========
+
+* Fixed the generated test code so that it doesn't fail (even though there aren't any tests in there)
+* Fixed a problem with a column sort direction not resetting when you select a new column to sort
+* Fixed the "parenthesize method" warning messages
+* Changed component.rhtml to rely on a variable for determining whether to display the scaffold wrapper elements instead of simply using request.xhr?
+* ScaffoldColumns will escape column data (If you set :eval then it is your responsibility to wrap it in h() if necessary).
+* Added the disabling of the add/edit forms on submit
+* Moved calls to update_params up into a before_filter
+
+3.1.2 =========
+
+* Fixed bug with default sort not working for non-standard (overridden) table names.
+* Fixed bug that allowed models to be generated in the plural form and in subdirectories.
+* Fixed bug with edit/delete links not working for non-standard primary keys.
+* Removed test methods from the controller functional test since they were all outdated and broken anyways.
+* Changed the helper methods for column header and element row id's to be more properly namespaced.
+* Changed controller actions to explicitly call RJS templates so there aren't any errors with conflicting RHTML templates.
+
+3.1.1 =========
+
+* Fixed two bugs with :eval and :sort_sql introspection in ScaffoldColumn. Should fix problems people have been having with
+  underscored table names.
+* Made the code that gets the @sort_by for a component more robust so that invalid values in the session doesn't continue
+  to hose scaffolds.
+
+3.1.0 =========
+
+* Added support for defining your own scaffold columns in models by assigning an array of ScaffoldColumn's to @scaffold_columns.
+  If @scaffold_columns is not defined it will be created defaulting to columns for model.content_columns. See more about
+  ScaffoldColumns in lib/ajax_scaffold.rb or by reading the documentation on the site. Model classes now must "require 'ajax_scaffold'"
+  to support this new functionality.
+* Added cancel as an action. There was enough inline code in _new_edit.rhtml that I thought, for consistency, it should be
+  refactored into a server-side method.
+* Refactoring: All common server side code has been moved into lib/ajax_scaffold.rb.
+  This replaces the previous helpers/ajax_scaffold_helper.rb with an include in the helpers to AjaxScaffold::Helper
+* Changed CSS styling of sorted columns to a more subtle darker blue from the yellow
+
+3.0.4 =========
+
+* Pagination loading indicator was not being namespaced using the scaffold_id. Caused all pagination loaders to show when
+  any pagination links were clicked.
+* Fixed more issues related to controllers in subdirectories. Relative path controller names caused problems as well so
+  all url hashes now have a leading / on all controller names
+
+3.0.3 =========
+
+* Fixed a bug where destroy.rjs was throwing element not found errors
+
+3.0.2 =========
+
+* Added loading indicators for sorting and pagination
+* Fixed a major bug that was causing problems with scaffolds generated with :: seperated controller names (eg Admin::Widgets)
+* Refactored the default page size into AjaxScaffoldUtil library
+
+3.0.1 =========
+
+* Removed hardcoded controller value from ajax_scaffold_helper.rb that was left in there by accident.
+
+3.0.0 ==========
+
+* Generated scaffold uses RJS templates. This should make adding and changing behavior much easier, but this also means that Rails 1.1+ is now required.
+* Sorting & Pagination support.
+
+2.2.1 ==========
+
+* Bug Fix : Generated scaffolds using controllers in modules no longer throw RoutingErrors.
+
+2.2.0 ==========
+
+* Graceful degredation in the absence of Javascript support.
+
+2.1.0 ==========
+
+* Safari: no longer crashes browser when editing the last row.
+* Row colors always alternate instead of being overwritten by Effect.Highlight.
+* Works when you generate with different controller and model parameters.
+* Creating a new places that new element where its create form previously was, not at the top as it was previously.
+* Now have the option to enable or disable highlighting via the generated scaffold
+
+2.0.0 ==========
+
+* Initial release of overhauled generator

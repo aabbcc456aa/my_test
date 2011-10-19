@@ -1,0 +1,2 @@
+require 'rufus/sc/scheduler'
+
