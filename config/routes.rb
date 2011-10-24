@@ -1,5 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :carts
 
+ map.resources :items
+  map.resources :orders
   map.resources :file_uploads
 
  map.resources :users, :member => {:rate => :post}

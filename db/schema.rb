@@ -9,10 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111017094158) do
+ActiveRecord::Schema.define(:version => 20111024023202) do
 
   create_table "aas", :force => true do |t|
     t.string   "aa"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carts", :force => true do |t|
+    t.integer  "item_id"
+    t.integer  "item_num",         :limit => 10, :precision => 10, :scale => 0
+    t.integer  "item_total_price", :limit => 10, :precision => 10, :scale => 0
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -21,6 +30,32 @@ ActiveRecord::Schema.define(:version => 20111017094158) do
     t.string   "name"
     t.string   "url"
     t.string   "file_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", :force => true do |t|
+    t.string   "item_no"
+    t.string   "item_price"
+    t.integer  "item_num"
+    t.integer  "item_total_price"
+    t.date     "item_date"
+    t.string   "item_person"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "order_id"
+  end
+
+  create_table "items_orders", :id => false, :force => true do |t|
+    t.integer "item_id"
+    t.integer "order_id"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.integer  "all_total"
+    t.string   "order_perosn"
+    t.date     "order_date"
+    t.integer  "order_all_num"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

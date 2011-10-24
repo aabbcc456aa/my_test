@@ -1,0 +1,36 @@
+<h1>Listing carts</h1>
+<div id="current_cart">
+  <%= render :partial=>'current_cart' %>
+</div>
+<table>
+  <tr>
+    <th>Item</th>
+     <th>price</th>
+    <th>Item num</th>
+    <th>Item total price</th>
+  </tr>
+
+<% @items.each do |item| %>
+  <% remote_form_for :cart,@cart, :url =>{:action => :add_to_cart} do |f| %>
+  <tr>
+    <td><%=h item.item_no %><%=  f.hidden_field :item_id, :value => item.id %> </td>
+     <td id="item_price"><%=h item.item_price%></td>
+    <td><%= f.text_field :item_num   %></td>
+    <td><%=f.text_field :item_total_price ,:readonly => true %></td>
+    <td><%= f.submit 'add_to_cart' %></td>
+  </tr>
+  <% end %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New cart', new_cart_path %>
+
+<script type="text/javascript">
+ function keyup(){
+   var item_price = $('#item_price').val();
+   var item_num = $('#car_item_num').val();
+   alert(item_num);
+ }
+</script>

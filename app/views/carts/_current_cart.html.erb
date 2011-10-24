@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <td>item_no</td>
+    <td>item_num</td>
+     <td>item_total_price</td>
+  </tr>
+  <% @carts.each do |cart| %>
+  <tr>
+    <td><%#=h cart.try(:item).try(:item_no) %></td>
+      <td><%=h cart.item_num %></td>
+      <td><%=h cart.item_total_price %></td>
+  </tr>
+  <% end %>
+</table>

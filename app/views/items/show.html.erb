@@ -1,0 +1,33 @@
+<p>
+  <b>Item no:</b>
+  <%=h @item.item_no %>
+</p>
+
+<p>
+  <b>Item price:</b>
+  <%=h @item.item_price %>
+</p>
+
+<p>
+  <b>Item num:</b>
+  <%=h @item.item_num %>
+</p>
+
+<p>
+  <b>Item total price:</b>
+  <%=h @item.item_total_price %>
+</p>
+
+<p>
+  <b>Item date:</b>
+  <%=h @item.item_date %>
+</p>
+
+<p>
+  <b>Item person:</b>
+  <%=h @item.item_person %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

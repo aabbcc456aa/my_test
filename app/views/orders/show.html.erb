@@ -1,0 +1,23 @@
+<p>
+  <b>All total:</b>
+  <%=h @order.all_total %>
+</p>
+
+<p>
+  <b>Order perosn:</b>
+  <%=h @order.order_perosn %>
+</p>
+
+<p>
+  <b>Order date:</b>
+  <%=h @order.order_date %>
+</p>
+
+<p>
+  <b>Order all num:</b>
+  <%=h @order.order_all_num %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

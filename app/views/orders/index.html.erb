@@ -1,0 +1,27 @@
+<h1>Listing orders</h1>
+
+<table>
+  <tr>
+    <th>All total</th>
+    <th>Order perosn</th>
+    <th>Order date</th>
+    <th>Order all num</th>
+  </tr>
+
+<% @orders.each do |order| %>
+  <tr>
+    <td><%=h order.all_total %></td>
+    <td><%=h order.order_perosn %></td>
+    <td><%=h order.order_date %></td>
+    <td><%=h order.order_all_num %></td>
+    <td><%= link_to 'Show', order %></td>
+     <td><%= link_to '更新购物项', :action =>:re_config,:id => order.id %></td>
+    <td><%= link_to 'Edit', edit_order_path(order) %></td>
+    <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New order', new_order_path %>

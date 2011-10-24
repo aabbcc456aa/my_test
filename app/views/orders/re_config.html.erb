@@ -1,0 +1,51 @@
+<p>
+  <b>All total:</b>
+  <%=h @order.all_total %>
+</p>
+
+<p>
+  <b>Order perosn:</b>
+  <%=h @order.order_perosn %>
+</p>
+
+<p>
+  <b>Order date:</b>
+  <%=h @order.order_date %>
+</p>
+
+<p>
+  <b>Order all num:</b>
+  <%=h @order.order_all_num %>
+</p>
+
+
+<h1>Listing items</h1>
+
+<table>
+  <tr>
+    <th>Item no</th>
+    <th>Item price</th>
+    <th>Item num</th>
+    <th>Item total price</th>
+    <th>Item date</th>
+    <th>Item person</th>
+  </tr>
+<% form_for :order, @order, :url => { :action => "re_config_update" } do |f| %>
+<% @order.items.each do |item| %>
+  <tr>
+    <td><%=h item.item_no %></td>
+    <td><%=h item.item_price %></td>
+    <td><%=h item.item_num %>
+        <% f.fields_for :items,item do |field| %>
+          <%=  field.text_field :item_num %>
+         <% end %>
+    </td>
+    <td><%=h item.item_total_price %></td>
+    <td><%=h item.item_date %></td>
+    <td><%=h item.item_person %></td>
+  </tr>
+<% end %>
+  
+</table>
+<%= f.submit "tijiao" %>
+<% end %>

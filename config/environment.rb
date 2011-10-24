@@ -52,4 +52,3 @@ end
 require 'action_web_service'
 #require 'rufus-scheduler'
 require 'web_app_theme'
-require "ajax_scaffold_generator"
